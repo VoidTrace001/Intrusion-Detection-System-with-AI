@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    network_mode: "host" # Crucial for packet capture/sniffing
+    volumes:
+      - ./ids_database.db:/app/ids_database.db
+      - ./models:/app/models
+    environment:
+      - SECRET_KEY=ids-super-secret-key-12345
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: always

@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#020617] text-slate-300 overflow-x-hidden;
+    margin: 0;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+}
+
+/* 📺 RETRO-CYBER POST-PROCESSING */
+.retro-container {
+  filter: contrast(1.1) brightness(1.1);
+  overflow: hidden;
+}
+
+.scanline {
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.06),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.06)
+  );
+  background-size: 100% 4px, 6px 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.chromatic-aberration {
+  text-shadow: 2px 0 rgba(255,0,0,0.3), -2px 0 rgba(0,255,255,0.3);
+}
+
+/* 🖥️ Hacker Terminal Background */
+.terminal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: #020617;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+/* 💎 GLASSMORPHISM HUD PANELS */
+.glass-panel {
+  background: rgba(10, 15, 30, 0.65);
+  backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+/* 🚨 KILL SWITCH */
+.kill-switch-container {
+  perspective: 500px;
+}
+
+.kill-switch-active {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both infinite;
+  border-color: #ef4444;
+  box-shadow: 0 0 30px #ef4444;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+/* 📡 ANIMATIONS */
+.animate-pulse-fast {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
+}
