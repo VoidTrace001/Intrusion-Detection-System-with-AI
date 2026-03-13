@@ -206,7 +206,7 @@ This tool is developed strictly for **educational and authorized security resear
 
 ---
 
-## 👤 Author
+## 👤 Author ##
 
 **VoidTrace001**  
 🔗 [GitHub Profile](https://github.com/VoidTrace001)
